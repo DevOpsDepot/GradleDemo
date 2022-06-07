@@ -10,7 +10,7 @@ variables:
   imageName: 'windows-2019'
   artifactName: 'Ideploy-drop'
   gradleOption: '-Xmx3072m'
-  jdkVersion: '1.9'
+  jdkVersion: '1.8'
   gradleFile: 'gradlew'
   contentPath: '**/target/*.jar'
   option: '@option'
