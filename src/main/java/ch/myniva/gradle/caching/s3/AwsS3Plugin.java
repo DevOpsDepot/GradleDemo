@@ -29,6 +29,7 @@ public class AwsS3Plugin implements Plugin<Settings> {
   @Override
   public void apply(Settings settings) {
     logger.info("Registering S3 build cache");
+    logger.info("Registering S3 build cache temp");
     BuildCacheConfiguration buildCacheConfiguration = settings.getBuildCache();
     buildCacheConfiguration.registerBuildCacheService(AwsS3BuildCache.class, AwsS3BuildCacheServiceFactory.class);
   }
