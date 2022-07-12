@@ -1,6 +1,6 @@
 trigger:
   branches:
-  include:
+   include:
      - Temp_Changes 
      - master 
      - testBranch 
