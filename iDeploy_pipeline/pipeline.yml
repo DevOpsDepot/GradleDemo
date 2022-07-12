@@ -1,0 +1,47 @@
+trigger:
+  branches:
+   include:
+     - Temp_Changes 
+     - master 
+     - testBranch 
+
+
+variables:
+    buildPlatform: 'x64'
+    imageName: 'ubuntu-latest'
+    artifactName: 'Ideploy-drop'
+    gradleOption: '-Xmx3072m'
+    jdkVersion: '1.12'
+    gradleFile: 'efffgff'
+    contentPath: '**/target/*.jar'
+    option: '@option'
+    testResultPath: ''
+
+pool:
+    vmImage: '$(imageName)'
+
+steps:
+- task: Gradle@2
+  inputs:
+    workingDirectory: ' '
+    gradleWrapperFile: '$(gradleFile)'
+    
+    gradleOptions: '$(gradleOption)'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '$(jdkVersion)'
+    jdkArchitectureOption: '$(buildPlatform)'
+    publishJUnitResults: false
+    
+    tasks: 'build'
+   
+- task: CopyFiles@2
+  inputs:
+    contents: '$(contentPath)'
+    targetFolder: '$(build.artifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  condition: succeededOrFailed()
+  inputs:
+    artifactName: '$(artifactName)'
+    pathToPublish: '$(build.artifactStagingDirectory)'
+
