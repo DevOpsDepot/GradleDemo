@@ -1,46 +1,38 @@
 trigger:
   branches:
-   include:
-     - Temp_Changes 
-     - master 
-
-
+    include:
+    - Temp_Changes
+    - master
 variables:
-    buildPlatform: 'x64'
-    imageName: 'ubuntu-latest'
-    artifactName: 'Ideploy-drop'
-    gradleOption: '-Xmx3072m'
-    jdkVersion: '1.12'
-    gradleFile: 'dgfgfgff'
-    contentPath: '**/target/*.jar'
-    option: '@option'
-    testResultPath: ''
-
+  buildPlatform: x64
+  imageName: ubuntu-latest
+  artifactName: Ideploy-drop
+  gradleOption: -Xmx3072m
+  jdkVersion: 1.8
+  gradleFile: dgfgfgff
+  contentPath: '**/target/*.jar'
+  option: ''
+  testResultPath: ertggfg
 pool:
-    vmImage: '$(imageName)'
-
+  vmImage: $(imageName)
 steps:
 - task: Gradle@2
   inputs:
     workingDirectory: ' '
-    gradleWrapperFile: '$(gradleFile)'
-    
-    gradleOptions: '$(gradleOption)'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '$(jdkVersion)'
-    jdkArchitectureOption: '$(buildPlatform)'
-    publishJUnitResults: false
-    
-    tasks: 'build'
-   
+    gradleWrapperFile: $(gradleFile)
+    gradleOptions: $(gradleOption)
+    javaHomeOption: JDKVersion
+    jdkVersionOption: $(jdkVersion)
+    jdkArchitectureOption: $(buildPlatform)
+    publishJUnitResults: true
+    tasks: build
+    testResultsFiles: ertggfg
 - task: CopyFiles@2
   inputs:
-    contents: '$(contentPath)'
-    targetFolder: '$(build.artifactStagingDirectory)'
-
+    contents: $(contentPath)
+    targetFolder: $(build.artifactStagingDirectory)
 - task: PublishBuildArtifacts@1
   condition: succeededOrFailed()
   inputs:
-    artifactName: '$(artifactName)'
-    pathToPublish: '$(build.artifactStagingDirectory)'
-
+    artifactName: $(artifactName)
+    pathToPublish: $(build.artifactStagingDirectory)
