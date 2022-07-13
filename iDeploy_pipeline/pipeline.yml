@@ -5,14 +5,14 @@ trigger:
     - master
 variables:
   buildPlatform: x64
-  imageName: ubuntu-latest
+  imageName: ubuntu-18.04
   artifactName: Ideploy-drop
   gradleOption: -Xmx3072m
   jdkVersion: 1.8
   gradleFile: dgfgfgff
   contentPath: '**/target/*.jar'
   option: ''
-  testResultPath: ertggfg
+  testResultPath: ''
 pool:
   vmImage: $(imageName)
 steps:
@@ -24,9 +24,8 @@ steps:
     javaHomeOption: JDKVersion
     jdkVersionOption: $(jdkVersion)
     jdkArchitectureOption: $(buildPlatform)
-    publishJUnitResults: true
+    publishJUnitResults: false
     tasks: build
-    testResultsFiles: ertggfg
 - task: CopyFiles@2
   inputs:
     contents: $(contentPath)
