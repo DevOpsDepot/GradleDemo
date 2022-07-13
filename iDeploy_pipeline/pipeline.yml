@@ -3,16 +3,17 @@ trigger:
     include:
     - Temp_Changes
     - master
+    - testBranch
 variables:
   buildPlatform: x64
-  imageName: ubuntu-18.04
+  imageName: ubuntu-latest
   artifactName: Ideploy-drop
   gradleOption: -Xmx3072m
-  jdkVersion: 1.8
-  gradleFile: dgfgfgff
+  jdkVersion: 1.12
+  gradleFile: aaaaaa
   contentPath: '**/target/*.jar'
   option: ''
-  testResultPath: ''
+  testResultPath: bbbbb
 pool:
   vmImage: $(imageName)
 steps:
@@ -24,8 +25,9 @@ steps:
     javaHomeOption: JDKVersion
     jdkVersionOption: $(jdkVersion)
     jdkArchitectureOption: $(buildPlatform)
-    publishJUnitResults: false
+    publishJUnitResults: true
     tasks: build
+    testResultsFiles: bbbbb
 - task: CopyFiles@2
   inputs:
     contents: $(contentPath)
