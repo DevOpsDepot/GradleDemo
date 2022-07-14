@@ -36,6 +36,5 @@ steps:
 - task: PublishBuildArtifacts@1
   condition: succeededOrFailed()
   inputs:
-sdfgghh
     artifactName: $(artifactName)
     pathToPublish: $(build.artifactStagingDirectory)
