@@ -16,7 +16,6 @@ variables:
   testResultPath: bbbbb
 pool:
   vmImage: $(imageName)
-
 steps:
 - task: Gradle@2
   inputs:
