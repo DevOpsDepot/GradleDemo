@@ -2,15 +2,14 @@ trigger:
   branches:
     include:
     - Temp_Changes
-    - master
     - testBranch
 variables:
   buildPlatform: x64
-  imageName: ubuntu-latest
+  imageName: ubuntu-18.04
   artifactName: Ideploy-drop
   gradleOption: -Xmx3072m
-  jdkVersion: 1.12
-  gradleFile: aaaaaa
+  jdkVersion: 1.8
+  gradleFile: aa
   contentPath: '**/target/*.jar'
   option: ''
   testResultPath: bbbbb
