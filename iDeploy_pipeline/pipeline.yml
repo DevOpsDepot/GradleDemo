@@ -6,7 +6,7 @@ trigger:
 variables:
   buildPlatform: x64
   imageName: ubuntu-18.04
-  artifactName: Ideploy-drop
+  artifactName: Test-drop
   gradleOption: -Xmx3072m
   jdkVersion: 1.8
   gradleFile: gradlew
