@@ -12,6 +12,9 @@ variables:
   gradleFile: gradlew
   contentPath: '**/target/*.jar'
   option: ''
+  pomPath: pom.xml
+  mavenOption: -Xmx3072m
+  goals: package
 pool:
   vmImage: $(imageName)
 steps:
