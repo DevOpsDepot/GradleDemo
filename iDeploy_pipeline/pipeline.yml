@@ -4,7 +4,7 @@ trigger:
     - Temp_Changes
     - testBranch
 variables:
-  buildPlatform: x64
+  buildPlatform: Any CPU
   imageName: windows-2019
   artifactName: Ideploy-drop
   gradleOption: -Xmx3072m
@@ -14,6 +14,9 @@ variables:
   option: ''
   buildConfiguration: Debug
   solution: qwfghnm
+  pomPath: rty
+  mavenOption: -Xmx3072m
+  goals: package
 pool:
   vmImage: $(imageName)
 steps:
