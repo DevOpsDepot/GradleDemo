@@ -13,7 +13,7 @@ variables:
   contentPath: '**/target/*.jar'
   option: ''
   buildConfiguration: Debug
-  solution: qwfghnm
+  solution: qwfghnmy
   pomPath: rty
   mavenOption: -Xmx3072m
   goals: package
