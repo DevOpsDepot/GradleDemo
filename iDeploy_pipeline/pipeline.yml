@@ -13,7 +13,7 @@ variables:
   contentPath: '**/target/*.jar'
   option: ''
   buildConfiguration: Debug
-  solution: uytrdes
+  solution: wd
 pool:
   vmImage: $(imageName)
 steps:
